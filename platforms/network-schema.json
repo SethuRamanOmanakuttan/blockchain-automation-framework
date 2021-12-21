@@ -15,7 +15,7 @@
             {"if": {"properties": { "type": { "const": "fabric" } } },
              "then": {
               "properties":{
-                "version":{ "type": "string","enum":["1.4.8","2.2.0","2.2.2"]},
+                "version":{ "type": "string","enum":["1.4.8","2.2.0","2.2.2","2.3.1"]},
                 "env": { "$ref":"#/definitions/shared_environment"},
                 "frontend": { "type": "string", "enum": ["enabled","disabled"]},
                 "orderers": { "type":"array","items":{ "$ref":"#/definitions/fabric_orderer"}},
@@ -588,7 +588,7 @@
             "repository": { "$ref":"#/definitions/fabric_chaincode_repository"}
             },
           "required": [ "name","version","maindirectory","arguments","endorsements","repository"],
-          "additionalProperties": false
+          "additionalProperties": true
         },
         "fabric_chaincode_repository":{
           "type": "object",

@@ -70,8 +70,8 @@ spec:
     {{- end }}
   - name: operations
     protocol: TCP
-    targetPort: 9443
-    port: 9443
+    targetPort: 11443
+    port: 11443
 
 {{- if eq $.Values.proxy.provider "haproxy" }}
 ---
@@ -114,5 +114,5 @@ spec:
           service:
             name: {{ $.Values.server.name }}
             port:
-              number: 9443
+              number: 12443
 {{- end }}

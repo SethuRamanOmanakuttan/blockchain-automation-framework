@@ -25,16 +25,16 @@
       include_role:
         name: "check/setup"
       vars:
-        path: "./build"
+        path: "/home/ubuntu/blockchain-automation-framework/build"
         check: "ensure_dir"
     - name: "create tempNetwork yaml file"
       copy:
         content: |
           {{ tempNetworkyaml |to_nice_yaml( width=50, explicit_start=True, explicit_end=True) }}
-        dest: ./build/temp.yaml             
+        dest: /home/ubuntu/blockchain-automation-framework/build/temp.yaml             
     - name: "run schema validator on network.yaml"
       shell: |
-        ajv validate -s ../../network-schema.json -d ./build/temp.yaml
+        ajv validate -s ../../network-schema.json -d /home/ubuntu/blockchain-automation-framework/build/temp.yaml
     - name: Remove the build directory and contents
       file:
         path: "./build"
